@@ -1,8 +1,10 @@
+import * as S from "./styles";
+
 const Main = () => {
   return (
-    <main>
-      <h1>react test</h1>
-    </main>
+    <S.Container>
+      <h1>Ecommerce</h1>
+    </S.Container>
   );
 };
 

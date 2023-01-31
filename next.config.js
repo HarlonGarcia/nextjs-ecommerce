@@ -2,11 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   compiler: {
-    styledComponents:
-      true |
-      {
-        ssr: true,
-      },
+    styledComponents: true,
   },
 };
 
