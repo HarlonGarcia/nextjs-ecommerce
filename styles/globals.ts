@@ -4,9 +4,12 @@ const GlobalStyles = createGlobalStyle`
   :root {
     --black: #0D0D0D;
     --white: #fffafa;
-
+    
+    --dark-purple: #1e1b2c;
     --purple: #2F3273;
     --violet: #636AF2;
+
+    --orange: #F63E02;
   }
 
   * {

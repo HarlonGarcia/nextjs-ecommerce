@@ -4,7 +4,7 @@ export const Container = styled.main`
   width: 100%;
   height: 100%;
 
-  padding: 2rem;
+  padding: 4rem;
 
   h1 {
     color: var(--white);
