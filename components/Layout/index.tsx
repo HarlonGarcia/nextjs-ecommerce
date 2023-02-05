@@ -15,9 +15,9 @@ const Layout = ({ children }: LayoutProps) => {
   }, []);
 
   const fetchUser = async () => {
-    const res = await fetch("http://localhost:3000/api/users");
-    const data = await res.json();
-    setUser(data[0]);
+    const response = await fetch("http://localhost:3000/api/users");
+    const users = await response.json();
+    setUser(users[0]);
   };
 
   return (

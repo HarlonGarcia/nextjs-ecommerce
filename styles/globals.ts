@@ -3,9 +3,14 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyles = createGlobalStyle`
   :root {
     --black: #0D0D0D;
+    --shadow: rgba(0, 0, 0, 0.2);
+    --shadow-100: rgba(0, 0, 0, 0.4);
+    
     --white: #fffafa;
     
     --dark-purple: #1e1b2c;
+    
+
     --purple: #2F3273;
     --violet: #636AF2;
 

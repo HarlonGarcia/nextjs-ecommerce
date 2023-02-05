@@ -130,12 +130,46 @@ export const MobileMenu = styled.div<ToggleProps>`
   transform: ${({ isOpened }) =>
     isOpened ? "translateY(0)" : "translateY(-110%)"};
 
+  @media (${device.mobileL}) {
+    display: none;
+  }
+`;
+
+export const UserOptions = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+
+    margin-bottom: 2rem;
+
+    strong {
+      color: var(--orange);
+      font-size: 1.75rem;
+      font-weight: 600;
+    }
+
+    img {
+      border-radius: 50%;
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+  }
+
   > ul {
     display: flex;
     flex-direction: column;
     gap: 2rem;
 
     list-style: none;
+
+    margin-bottom: 3rem;
 
     li {
       display: flex;
@@ -146,27 +180,52 @@ export const MobileMenu = styled.div<ToggleProps>`
         width: 1.8rem;
         height: 1.8rem;
 
-        color: var(--orange);
+        color: var(--violet);
       }
 
       > span {
         color: var(--white);
         font-size: 1.75rem;
       }
-
-      &:first-child {
-        > span {
-          color: var(--orange);
-          font-size: 1.5rem;
-          font-weight: 600;
-        }
-
-        margin-bottom: 0.175rem;
-      }
     }
   }
 
-  @media (${device.mobileL}) {
-    display: none;
+  > button {
+    max-width: 10rem;
+
+    padding: 1rem 0.75rem;
+
+    color: var(--white);
+    background-color: var(--shadow-100);
+    outline: none;
+    border: none;
+    border-radius: 0.5rem;
+  }
+`;
+
+export const MenuSignUp = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  > strong {
+    color: var(--orange);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  > button {
+    max-width: 10rem;
+
+    padding: 1rem 1.5rem;
+
+    background-color: var(--shadow-100);
+    outline: none;
+    border: none;
+    border-radius: 0.5rem;
+
+    > a {
+      color: var(--white);
+      text-decoration: none;
+    }
   }
 `;
