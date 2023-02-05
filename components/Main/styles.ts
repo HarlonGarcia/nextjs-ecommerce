@@ -10,4 +10,9 @@ export const Container = styled.main`
   h1 {
     color: var(--white);
   }
+
+  > div {
+    font-size: 1.5rem;
+    color: var(--white);
+  }
 `;
