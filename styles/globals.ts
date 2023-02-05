@@ -10,6 +10,10 @@ const GlobalStyles = createGlobalStyle`
     --violet: #636AF2;
 
     --orange: #F63E02;
+
+
+    --navbar-content-size: 2.4rem;
+    --navbar-spacing: 3rem;
   }
 
   * {

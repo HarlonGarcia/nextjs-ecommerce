@@ -13,7 +13,7 @@ export const Header = styled.header`
 
   width: 100%;
 
-  padding: 2rem 4rem;
+  padding: var(--navbar-spacing) 4rem;
 
   color: var(--violet);
   background-color: var(--black);
@@ -116,7 +116,7 @@ export const ToggleMenu = styled.div<ToggleProps>`
 
 export const MobileMenu = styled.div<ToggleProps>`
   position: fixed;
-  top: 6.8rem;
+  margin-top: 0rem;
 
   display: flex;
   align-items: center;
@@ -152,6 +152,16 @@ export const MobileMenu = styled.div<ToggleProps>`
       > span {
         color: var(--white);
         font-size: 1.75rem;
+      }
+
+      &:first-child {
+        > span {
+          color: var(--orange);
+          font-size: 1.5rem;
+          font-weight: 600;
+        }
+
+        margin-bottom: 0.175rem;
       }
     }
   }

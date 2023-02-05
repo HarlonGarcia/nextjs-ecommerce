@@ -2,6 +2,7 @@ import * as S from "./styles";
 import { FaShoppingCart, FaUserCircle } from "react-icons/fa";
 import { useState } from "react";
 import { Raleway } from "@next/font/google";
+import { User } from "@prisma/client";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
@@ -9,7 +10,11 @@ export interface ToggleProps {
   isOpened: boolean;
 }
 
-const Navbar = () => {
+interface NavbarProps {
+  userAccount: User | null;
+}
+
+const Navbar = ({ userAccount }: NavbarProps) => {
   const [isActive, setIsActive] = useState(false);
 
   return (
@@ -37,6 +42,9 @@ const Navbar = () => {
       </S.Header>
       <S.MobileMenu isOpened={isActive} className={raleway.className}>
         <ul>
+          <li>
+            <span>Welcome, {userAccount?.name}</span>
+          </li>
           <li>
             <FaShoppingCart />
             <span>Shopping Cart</span>
