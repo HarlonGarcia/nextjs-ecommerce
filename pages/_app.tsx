@@ -3,6 +3,7 @@ import GlobalStyles from "@/styles/globals";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { SessionProvider } from "next-auth/react";
+import { AnimatePresence } from "framer-motion";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -18,7 +19,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <GlobalStyles />
       <SessionProvider session={pageProps.session}>
         <Layout>
-          <Component {...pageProps} />
+          <AnimatePresence mode="wait" initial={false}>
+            <Component {...pageProps} />
+          </AnimatePresence>
         </Layout>
       </SessionProvider>
     </>

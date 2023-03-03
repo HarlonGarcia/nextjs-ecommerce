@@ -17,6 +17,11 @@ export const Header = styled.header`
 
   color: var(--violet);
   background-color: var(--black);
+
+  > a {
+    color: var(--violet);
+    text-decoration: none;
+  }
 `;
 
 export const NavList = styled.ul`
@@ -24,7 +29,7 @@ export const NavList = styled.ul`
   gap: 4rem;
   list-style: none;
 
-  li {
+  > li > a {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -125,10 +130,12 @@ export const MobileMenu = styled.div<ToggleProps>`
 
   padding: 3rem 4rem;
 
-  background-color: var(--dark-purple);
+  background: var(--dark-purple);
+  border-bottom: 1px solid var(--orange);
+
   transition: all 0.2s ease-in-out;
   transform: ${({ isOpened }) =>
-    isOpened ? "translateY(0)" : "translateY(-110%)"};
+    isOpened ? "translateY(0)" : "translateY(-130%)"};
 
   @media (${device.mobileL}) {
     display: none;
@@ -171,10 +178,12 @@ export const UserOptions = styled.div`
 
     margin-bottom: 3rem;
 
-    li {
+    li > a {
       display: flex;
       align-items: center;
       gap: 1.25rem;
+
+      text-decoration: none;
 
       > svg {
         width: 1.8rem;
@@ -228,4 +237,17 @@ export const MenuSignUp = styled.div`
       text-decoration: none;
     }
   }
+`;
+
+export const Overlay = styled.div<ToggleProps>`
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: ${({ isOpened }) => (isOpened ? "block" : "none")};
+
+  width: 100%;
+  height: 100%;
+  background: var(--shadow-100);
+  backdrop-filter: blur(3px);
 `;

@@ -5,6 +5,8 @@ const GlobalStyles = createGlobalStyle`
     --black: #0D0D0D;
     --shadow: rgba(0, 0, 0, 0.2);
     --shadow-100: rgba(0, 0, 0, 0.4);
+    --shadow-200: rgba(0, 0, 0, 0.6);
+    --shadow-300: rgba(0, 0, 0, 0.8);
     
     --white: #fffafa;
     
@@ -19,6 +21,8 @@ const GlobalStyles = createGlobalStyle`
 
     --navbar-content-size: 2.4rem;
     --navbar-spacing: 3rem;
+
+    --container-padding: 4rem;
   }
 
   * {

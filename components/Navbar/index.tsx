@@ -6,7 +6,6 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import { User } from "@prisma/client";
 import { useRouter } from "next/router";
 import { signOut, useSession } from "next-auth/react";
 
@@ -16,14 +15,11 @@ export interface ToggleProps {
   isOpened: boolean;
 }
 
-interface NavbarProps {
-  userAccount: User | null;
-}
-
-const Navbar = ({ userAccount }: NavbarProps) => {
+const Navbar = () => {
   const [isActive, setIsActive] = useState(false);
 
   const router = useRouter();
+
   const isLogged: (pathname: string) => boolean = (pathname) =>
     router.pathname === pathname;
 
@@ -32,15 +28,21 @@ const Navbar = ({ userAccount }: NavbarProps) => {
   return (
     <>
       <S.Header className={raleway.className}>
-        <h1>Logo</h1>
+        <Link href="/">
+          <h1>Logo</h1>
+        </Link>
         <S.NavList>
           <li>
-            <FaShoppingCart />
-            <span>Shopping Cart</span>
+            <Link href="/cart">
+              <FaShoppingCart />
+              <span>Shopping Cart</span>
+            </Link>
           </li>
           <li>
-            <FaUserCircle />
-            <span>Your account</span>
+            <Link href="/account">
+              <FaUserCircle />
+              <span>Your account</span>
+            </Link>
           </li>
         </S.NavList>
         <S.ToggleMenu
@@ -52,14 +54,15 @@ const Navbar = ({ userAccount }: NavbarProps) => {
           <span></span>
         </S.ToggleMenu>
       </S.Header>
+      <S.Overlay isOpened={isActive} />
       <S.MobileMenu isOpened={isActive} className={raleway.className}>
         {session ? (
           <S.UserOptions>
             <div>
-              <strong>Welcome, {userAccount?.name}</strong>
-              {userAccount?.image ? (
+              <strong>Welcome, {session.user?.name}</strong>
+              {session.user?.image ? (
                 <Image
-                  src={userAccount.image}
+                  src={session.user.image}
                   alt="User's picture"
                   width={50}
                   height={50}
@@ -68,12 +71,16 @@ const Navbar = ({ userAccount }: NavbarProps) => {
             </div>
             <ul>
               <li>
-                <FaShoppingCart />
-                <span>Shopping Cart</span>
+                <Link href="/cart">
+                  <FaShoppingCart />
+                  <span>Shopping Cart</span>
+                </Link>
               </li>
               <li>
-                <FaUserCircle />
-                <span>Your Account</span>
+                <Link href="/account">
+                  <FaUserCircle />
+                  <span>Your Account</span>
+                </Link>
               </li>
             </ul>
             <button onClick={() => signOut()}>Log out</button>
