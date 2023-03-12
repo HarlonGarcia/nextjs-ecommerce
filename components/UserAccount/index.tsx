@@ -3,6 +3,7 @@ import * as S from "./styles";
 import { Raleway } from "@next/font/google";
 import Image from "next/image";
 import { FaShoppingCart } from "react-icons/fa";
+import { signOut } from "next-auth/react";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
@@ -25,14 +26,20 @@ function UserAccount({ session }: UserAccountProps) {
         />
         <div>
           <h2>{session?.user?.name}</h2>
-          <strong>R$378.00</strong>
+          <strong>R$ 378.00</strong>
           <small>View products on cart</small>
         </div>
       </S.AccountDetails>
       <S.Options>
-        <li>Purchases historic</li>
-        <li>Settings</li>
-        <li>Logout</li>
+        <li>
+          <button>Purchases historic</button>
+        </li>
+        <li>
+          <button>Settings</button>
+        </li>
+        <li>
+          <button onClick={() => signOut()}>Logout</button>
+        </li>
       </S.Options>
     </S.Container>
   );

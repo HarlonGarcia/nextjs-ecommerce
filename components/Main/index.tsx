@@ -14,8 +14,8 @@ const raleway = Raleway({
 
 const Main = ({ products }: MainProps) => {
   return (
-    <S.Container>
-      <h1 className={raleway.className}>On sale 50%</h1>
+    <S.Container className={raleway.className}>
+      <h1>Check out our offers</h1>
       <S.OffersContainer>
         {products.map((product) => (
           <S.Offer key={product.id}>
@@ -29,6 +29,19 @@ const Main = ({ products }: MainProps) => {
           </S.Offer>
         ))}
       </S.OffersContainer>
+      <S.FOWrapper>
+        <S.FeaturedOffer>
+          <S.FeaturedOfferDescription>
+            Create your own look with <strong>10% off</strong>
+          </S.FeaturedOfferDescription>
+          <Image
+            src="/images/model.png"
+            alt="Featured offer"
+            width={290}
+            height={290}
+          />
+        </S.FeaturedOffer>
+      </S.FOWrapper>
     </S.Container>
   );
 };

@@ -29,11 +29,27 @@ export const NavList = styled.ul`
   gap: 4rem;
   list-style: none;
 
-  > li > a {
+  > li > button {
+    padding: 0.75rem 1rem;
+    background-color: transparent;
+    border: 2px solid var(--orange);
+    border-radius: 0.5rem;
+    cursor: pointer;
+
+    > a {
+      font-weight: 600;
+      color: var(--orange);
+    }
+  }
+
+  > li > a,
+  > li > button > a {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    text-decoration: none;
 
     cursor: pointer;
 
@@ -76,6 +92,7 @@ export const NavList = styled.ul`
 
   @media (${device.mobileL}) {
     display: flex;
+    align-items: center;
   }
 `;
 

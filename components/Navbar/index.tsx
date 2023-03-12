@@ -23,7 +23,7 @@ const Navbar = () => {
   const isLogged: (pathname: string) => boolean = (pathname) =>
     router.pathname === pathname;
 
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
 
   return (
     <>
@@ -38,12 +38,23 @@ const Navbar = () => {
               <span>Shopping Cart</span>
             </Link>
           </li>
-          <li>
-            <Link href="/account">
-              <FaUserCircle />
-              <span>Your account</span>
-            </Link>
-          </li>
+          {session ? (
+            <li>
+              <Link href="/account">
+                <FaUserCircle />
+                <span>Your account</span>
+              </Link>
+            </li>
+          ) : null}
+          {!session ? (
+            <li>
+              <button>
+                <Link href="/api/auth/signin" legacyBehavior>
+                  <a data-active={isLogged("/signup")}>Log in</a>
+                </Link>
+              </button>
+            </li>
+          ) : null}
         </S.NavList>
         <S.ToggleMenu
           onClick={() => setIsActive(!isActive)}

@@ -57,13 +57,23 @@ export const Options = styled.ul`
   display: flex;
   flex-direction: column;
 
-  padding: var(--container-padding);
+  padding: calc(var(--container-padding) - 1rem) var(--container-padding);
 
-  font-size: 1.6rem;
   list-style: none;
-
-  color: var(--white);
   background-color: var(--dark-purple);
+
+  > li > button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    cursor: pointer;
+
+    font-size: 1.6rem;
+    color: var(--white);
+  }
 
   > :nth-child(1n) {
     padding: 1.5rem;
